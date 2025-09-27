@@ -1,20 +1,54 @@
 from pathlib import Path
-from pygments import highlight
-from pygments.lexers import get_lexer_for_filename, TextLexer
-from pygments.formatters import TerminalFormatter
+import subprocess
+import shutil
 
-
-def get_syntax_highlighted_content(file_path: Path) -> str:
+def get_syntax_highlighted_content(path: Path, max_lines: int = 20) -> str:
     """
-    Returns syntax-highlighted content for a file using Pygments.
-    Falls back to plain text if lexer detection fails.
+    Returns the first few lines of a file for preview purposes.
     """
     try:
-        lexer = get_lexer_for_filename(str(file_path))
-    except Exception:
-        lexer = TextLexer()
+        with open(path, "r") as f:
+            lines = []
+            for i, line in enumerate(f):
+                if i >= max_lines:
+                    lines.append("... (truncated)")
+                    break
+                lines.append(line.rstrip("\n"))
+        return "\n".join(lines)
+    except Exception as e:
+        return f"Error reading file: {e}"
+
+
+def open_in_editor(path: Path, editor: str = None):
+    """
+    Opens the file in a read-only terminal editor.
+    Default editor order: nvim > nano > less
+    """
+    path = path.resolve()
+    if not path.exists():
+        print(f"❌ File {path} does not exist")
+        return
+
+    # Detect available editor if not specified
+    if editor is None:
+        for e in ("nvim", "nano", "less"):
+            if shutil.which(e):
+                editor = e
+                break
+        else:
+            print("❌ No supported editor found (nvim/nano/less)")
+            return
+
+    # Construct read-only flags
+    flags = []
+    if editor == "nvim":
+        flags = ["-R"]
+    elif editor == "nano":
+        flags = ["-v"]  # view mode
+    elif editor == "less":
+        flags = []  # less is read-only by default
+
     try:
-        text = file_path.read_text(encoding="utf-8")
-    except Exception:
-        text = f"Could not read file: {file_path}"
-    return highlight(text, lexer, TerminalFormatter())
+        subprocess.run([editor, *flags, str(path)])
+    except Exception as e:
+        print(f"❌ Failed to open editor: {e}")
