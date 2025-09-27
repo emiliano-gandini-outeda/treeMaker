@@ -1,0 +1,7 @@
+[project]
+name = "treemaker"
+version = "0.2.0"
+dependencies = ["textual", "pygments", "pyperclip"]
+
+[project.scripts]
+treemaker = "treemaker.app:main"
