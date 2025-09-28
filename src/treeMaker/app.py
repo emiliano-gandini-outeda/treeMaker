@@ -9,7 +9,7 @@ import subprocess
 DEFAULT_IGNORED = [
     ".git/", "__pycache__/", ".DS_Store",
     "node_modules", ".idea", ".vscode",
-    "dist", "build", ".eggs", ".venv"
+    "dist", "build", ".eggs", ".venv","venv",
 ]
 
 
