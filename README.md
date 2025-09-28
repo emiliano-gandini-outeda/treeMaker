@@ -22,7 +22,7 @@ TreeMaker is not **yet** in the AUR, so install manually:
 
 ```bash
 git clone https://github.com/emiliano-gandini-outeda/treemaker.git
-cd treemaker
+cd treeMaker
 python -m venv venv
 source venv/bin/activate
 pip install .
@@ -32,7 +32,7 @@ pip install .
 
 ```bash
 git clone https://github.com/emiliano-gandini-outeda/treemaker.git
-cd treemaker
+cd treeMaker
 python3 -m pip install --user .
 ```
 
