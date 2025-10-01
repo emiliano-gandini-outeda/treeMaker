@@ -18,7 +18,7 @@ TreeMaker is a console-native TUI (Textual User Interface) tool to explore direc
 
 ### Arch Linux / Manjaro
 
-TreeMaker is not **yet** in the AUR, so install manually:
+TreeMaker is not **yet** in the AUR, so install manually (pipx required for global install):
 
 ```bash
 git clone https://github.com/emiliano-gandini-outeda/treemaker.git
