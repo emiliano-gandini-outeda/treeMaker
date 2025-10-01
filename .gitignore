@@ -1,3 +1,4 @@
 /build
 /src/treeMaker.egg-info
 /src/treemaker.egg-info
+/src/treeMaker/__pycache__
