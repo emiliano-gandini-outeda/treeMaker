@@ -23,9 +23,7 @@ TreeMaker is not **yet** in the AUR, so install manually:
 ```bash
 git clone https://github.com/emiliano-gandini-outeda/treemaker.git
 cd treeMaker
-python -m venv venv
-source venv/bin/activate
-pip install .
+pipx install /home/eclipse/Documents/GitHub/treeMaker
 ```
 
 ### Ubuntu / Debian-based
