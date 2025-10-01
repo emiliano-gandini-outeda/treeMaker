@@ -4,4 +4,4 @@ version = "0.2.0"
 dependencies = ["textual", "pygments", "pyperclip"]
 
 [project.scripts]
-treeMaker = "treeMaker.src.treeMaker.app:main"
+treemaker = "treeMaker.app:main"
