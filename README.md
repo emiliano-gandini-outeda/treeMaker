@@ -22,7 +22,7 @@ TreeMaker is not **yet** in the AUR, so install manually (pipx required for glob
 
 ```bash
 git clone https://github.com/emiliano-gandini-outeda/treemaker.git
-cd treeMaker
+cd treemaker
 pipx install /home/eclipse/Documents/GitHub/treeMaker
 ```
 
@@ -30,7 +30,7 @@ pipx install /home/eclipse/Documents/GitHub/treeMaker
 
 ```bash
 git clone https://github.com/emiliano-gandini-outeda/treemaker.git
-cd treeMaker
+cd treemaker
 python3 -m pip install --user .
 ```
 
